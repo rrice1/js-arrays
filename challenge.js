@@ -75,6 +75,18 @@ const printToDom = (stringToPrint, divId) => {
     selectedDiv.innerHTML = stringToPrint;
     };
 
+const imagesStringBuilder = () => {
+  let newString = '';
+  for(let i=0; i<elizabethSanger.images.length;i++){
+    newString += `<div class="images">`;
+    newString +=  `<img src=${elizabethSanger.images[i].imageUrl}></img>`;
+    newString +=  `<h3>${elizabethSanger.images[i].description}</h3>`;
+    newString +=  `<h4>${elizabethSanger.images[i].type}</h4>`;
+    newString += `</div>`;
+  }
+  printToDom(newString, 'images');
+};
+
 const voterRegistrationStringBuilder = () => {
  const newString = `<a href="https://${elizabethSanger.voterRegistrationUrl}" target="_blank">Register to Vote Here</a>`;
  printToDom(newString, 'voterRegistration');
@@ -90,15 +102,63 @@ const statementsStringBuilder = () => {
     for(let i=0; i<elizabethSanger.statements.length;i++){
         newString += `<div class="statement">`;
         newString +=    `<h3>${elizabethSanger.statements[i].statement}</h3>`;
-        newString +=    `<h6>${elizabethSanger.statements[i].category}</h6>`;
+        newString +=    `<h5>${elizabethSanger.statements[i].category}</h5>`;
         newString += `</div>`;
     }
     printToDom(newString, 'statements');
 };
 
+const congdistStringBuilder = () => {
+  let newString = `<p>This is congressional district number ${elizabethSanger.congressionalDistrict}.</p>`
+  printToDom(newString,'congressionalDistrict');
+};
+
+const eventsStringBuilder = () => {
+  let newString = '';
+  for(let i=0; i<elizabethSanger.events.length;i++){
+    newString += `<div class="events">`;
+    newString +=  `<h5>${elizabethSanger.events[i].date}</h5>`;
+    newString +=  `<h3>${elizabethSanger.events[i].title}</h3>`;
+    newString +=  `<h4>${elizabethSanger.events[i].description}</h4>`;
+    newString += `</div>`;
+  }
+  printToDom(newString, 'events');
+};
+
+const volunteersStringBuilder = () => {
+  let newString = '';
+  for(let i=0; i<elizabethSanger.volunteers.length;i++){
+    newString += `<div class="volunteers">`;
+    newString +=  `<h4>${elizabethSanger.volunteers[i].name}</h4>`;
+    newString +=  `<h4>${elizabethSanger.volunteers[i].address}</h4>`;
+    newString +=  `<h4>${elizabethSanger.volunteers[i].email}</h4>`;
+    newString +=  `<h4>${elizabethSanger.volunteers[i].phone}</h4>`;
+    newString +=  `<h4>${elizabethSanger.volunteers[i].availability}</h4>`;
+    newString +=  `<h4>${elizabethSanger.volunteers[i].activities}</h4>`;
+    newString += `</div>`;
+  }
+  printToDom(newString, 'volunteers');
+};
+
+const bioStringBuilder = () => {
+  let newString = `<h3>${elizabethSanger.biography}</h3>`
+  printToDom(newString,'biography');
+};
+
+const missionStringBuilder = () => {
+  let newString = `<h3>${elizabethSanger.missionStatement}</h3>`
+  printToDom(newString,'missionStatement');
+};
+
+imagesStringBuilder();
+missionStringBuilder();
+bioStringBuilder();
+eventsStringBuilder();
+congdistStringBuilder();
 voterRegistrationStringBuilder();
 donationFormStringBuilder();
 statementsStringBuilder();
+volunteersStringBuilder();
 
 // part 3
 const updateVoterRegistration = (newUrl) => {
