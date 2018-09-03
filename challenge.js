@@ -166,4 +166,56 @@ const updateVoterRegistration = (newUrl) => {
     voterRegistrationStringBuilder();
 };
 
+const updateDonationForm = (newUrl) => {
+  elizabethSanger.donationFormUrl = newUrl;
+  donationFormStringBuilder();
+};
+
+const updateCongDist = (newDist) => {
+  elizabethSanger.congressionalDistrict = newDist;
+  congdistStringBuilder();
+};
+
+const updateBio = (newBio) => {
+  elizabethSanger.biography = newBio;
+  bioStringBuilder();
+};
+
+const updateMission = (newMission) => {
+  elizabethSanger.missionStatement = newMission;
+  missionStringBuilder();
+};
+
+const updateStatements = ({statement,category}) => {
+  
+  elizabethSanger.statements.push({statement,category});
+  statementsStringBuilder();
+};
+
+const updateEvents = ({date,title,description}) => {
+  
+  elizabethSanger.events.push({date,title,description});
+  eventsStringBuilder();
+};
+
+const updateVols = ({name,address,email,phone,availability,activities}) => {
+  
+  elizabethSanger.volunteers.push({name,address,email,phone,availability,activities});
+  volunteersStringBuilder();
+};
+
+const updateImages = ({imageUrl,description,type}) => {
+  
+  elizabethSanger.images.push({imageUrl,description,type});
+  imagesStringBuilder();
+};
+
 updateVoterRegistration('classtracker.zoeames.com');
+updateDonationForm('classtracker.zoeames.com');
+updateCongDist(4);
+updateBio('This is my newest biography.');
+updateMission('This is my newest mission statement.');
+updateStatements({statement:'I love lamp', category:'Furniture'});
+updateEvents({date:'09/03/2018', title:'Best Title Ever',description:'Best description ever'});
+updateVols({name:'Rodrigo Chavez',address:'999 Humbert Court',email:'Ilovelamps@gmail.com',phone:'865-972-8301',availability:'All day every day',activities:'Running around'});
+updateImages({imageUrl:'https://media.mnn.com/assets/images/2015/08/google%20cat.jpg.653x0_q80_crop-smart.jpg',description:'A fun cat', type:'Cat'})
